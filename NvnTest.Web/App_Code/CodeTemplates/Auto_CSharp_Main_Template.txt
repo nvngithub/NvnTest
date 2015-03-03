@@ -1,0 +1,44 @@
+﻿using System;
+using System.IO;
+using System.Reflection;
+
+namespace Auto_CSharp_App {
+    class Program {
+		private static string outPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + Path.DirectorySeparatorChar + @"out\";
+        
+        static void Main(string[] args) {
+            if (Directory.Exists(outPath)) {
+                Directory.Delete(outPath, true);
+            }
+
+            Directory.CreateDirectory(outPath);
+            
+			###TestCases
+        }
+
+        private static void ProcessTestCase(int testCaseIndex, string inputValues, string expectedValue, string outputValue, bool match) {
+            string message = Environment.NewLine + "********** Test case: " + testCaseIndex + " **********" + Environment.NewLine + Environment.NewLine;
+            // Show input values
+            message += "Input values:" + Environment.NewLine;
+            message += inputValues + Environment.NewLine + Environment.NewLine;
+
+            message += "Expected value:" + expectedValue + Environment.NewLine;
+
+            message += "Output value:" + outputValue + Environment.NewLine + Environment.NewLine;
+
+            message += "Status:" + (match ? "SUCCESS" : "FAIL") + Environment.NewLine;
+
+            string filename = outPath + testCaseIndex + ".txt";
+            
+            File.WriteAllText(filename, message);
+        }
+
+        private static bool Assert(string expectedValue, string value) {
+            return expectedValue == value;
+        }
+
+        private static bool Assert(int expectedValue, int value) {
+            return expectedValue == value;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Web Developer Express 2008
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "NvnTest.Web", "NvnTest.Web\", "{E1D7687B-6570-47EC-8DF7-79E5B680CCEB}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "2.0"
+		Debug.AspNetCompiler.VirtualPath = "/NvnTest.Web"
+		Debug.AspNetCompiler.PhysicalPath = "NvnTest.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\NvnTest.Web\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/NvnTest.Web"
+		Release.AspNetCompiler.PhysicalPath = "NvnTest.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\NvnTest.Web\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49502"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1D7687B-6570-47EC-8DF7-79E5B680CCEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1D7687B-6570-47EC-8DF7-79E5B680CCEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

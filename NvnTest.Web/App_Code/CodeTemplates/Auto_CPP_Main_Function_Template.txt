@@ -1,0 +1,18 @@
+﻿#include "iostream.h"
+#include "fstream.h"
+#include <dir.h>
+#include "string.h"
+#include <windows.h>
+
+###FunctionSignature
+ofstream fs;
+###ReturnType val;
+
+void main()
+{	
+    CreateDirectory (".\\out\\out", NULL);
+    
+    ###TestCases
+}   
+
+###Code

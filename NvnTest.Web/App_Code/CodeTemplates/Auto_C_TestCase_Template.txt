@@ -1,0 +1,20 @@
+﻿    fp = fopen(".\\out\\out\\###Index.txt", "w+");
+	
+	val = ###CallFunction
+	
+	fprintf(fp, "\n********** Test case : ###Index **********\n\n");
+	
+	fprintf(fp, "Input values:\n");
+	fprintf(fp, "###InputValues\n\n");
+	
+	fprintf(fp, "Expected value: ");
+	fprintf(fp, "###ExpectedValue\n");
+	
+	fprintf(fp, "Output value: ");
+	fprintf(fp, ###OutputValue);	
+	fprintf(fp, "\n\n");
+	
+	fprintf(fp, "Status: ");
+	fprintf(fp, ###Status);
+	
+	fclose(fp);

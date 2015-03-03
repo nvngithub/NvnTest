@@ -1,0 +1,20 @@
+﻿    fs.open(".\\out\\out\\###Index.txt");
+	
+	val = ###CallFunction
+	
+	fs << "\n" << "********** " << "Test case : " << "###Index" << " **********" << "\n\n";
+	
+	fs << "Input values:\n";
+	fs << "###InputValues\n\n";
+	
+	fs << "Expected value: ";
+	fs << "###ExpectedValue\n";
+	
+	fs << "Output value: ";
+	fs << ###OutputValue;
+	fs << "\n\n";
+	
+	fs << "Status: ";
+	fs << ###Status;
+	
+	fs.close();

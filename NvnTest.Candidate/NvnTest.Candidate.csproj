@@ -1,0 +1,701 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3CE69B2E-6ECD-4167-ADFB-45B64107977A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NvnTest.Candidate</RootNamespace>
+    <AssemblyName>Coderlabz.Candidate</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>152958216C588EE8B06F0B5AD19D0E2047B8F6C7</ManifestCertificateThumbprint>
+    <ManifestKeyFile>NvnTest.Candidate_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <TargetZone>LocalIntranet</TargetZone>
+    <PublishUrl>C:\Users\Naveen Hegde\Desktop\NvnTest\Build\Coderlabz.Candidate\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.coderlabz.com/app/cnd/</InstallUrl>
+    <SupportUrl>http://www.coderlabz.com/</SupportUrl>
+    <ProductName>Coderlabz.Candidate</ProductName>
+    <PublisherName>Coderlabz</PublisherName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <TrustUrlParameters>true</TrustUrlParameters>
+    <ApplicationRevision>65</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;Client, LIVE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;Client, LIVE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Alsing.SyntaxBox, Version=1.4.10.19575, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Alsing.SyntaxBox.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Common\CommonClasses.cs">
+      <Link>CommonClasses.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Forms\WebViewerForm.cs">
+      <Link>forms\WebViewerForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\Common\Forms\WebViewerForm.designer.cs">
+      <Link>forms\WebViewerForm.designer.cs</Link>
+      <DependentUpon>WebViewerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\programming\algo\AlgoCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\programming\algo\AlgoCtrl.Designer.cs">
+      <DependentUpon>AlgoCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\programming\code\CodeCmdCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\programming\code\CodeCmdCtrl.Designer.cs">
+      <DependentUpon>CodeCmdCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\programming\code\CodeCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\programming\code\CodeCtrl.Designer.cs">
+      <DependentUpon>CodeCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\programming\code\CodeEditorCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\programming\code\CodeEditorCtrl.Designer.cs">
+      <DependentUpon>CodeEditorCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\programming\code\CodeOutputCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\programming\code\CodeOutputCtrl.Designer.cs">
+      <DependentUpon>CodeOutputCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\programming\desc\DescCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\programming\desc\DescCtrl.Designer.cs">
+      <DependentUpon>DescCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\webprogramming\WebCmdCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\webprogramming\WebCmdCtrl.Designer.cs">
+      <DependentUpon>WebCmdCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\webprogramming\WebCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\webprogramming\WebCtrl.Designer.cs">
+      <DependentUpon>WebCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\webprogramming\WebEditorCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\webprogramming\WebEditorCtrl.Designer.cs">
+      <DependentUpon>WebEditorCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\webprogramming\WebFilesCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\webprogramming\WebFilesCtrl.Designer.cs">
+      <DependentUpon>WebFilesCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\BrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\BrowserForm.Designer.cs">
+      <DependentUpon>BrowserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\SubmitPreviewCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\SubmitPreviewCtrl.Designer.cs">
+      <DependentUpon>SubmitPreviewCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes.cs" />
+    <Compile Include="ctrls\question\QuestionViewCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\QuestionViewCtrl.Designer.cs">
+      <DependentUpon>QuestionViewCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\objective\ObjectiveOptionsCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\objective\ObjectiveOptionsCtrl.Designer.cs">
+      <DependentUpon>ObjectiveOptionsCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\sql\SqlCommandCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\sql\SqlCommandCtrl.Designer.cs">
+      <DependentUpon>SqlCommandCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\sql\SqlCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\sql\SqlCtrl.Designer.cs">
+      <DependentUpon>SqlCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\sql\SqlEditorCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\sql\SqlEditorCtrl.Designer.cs">
+      <DependentUpon>SqlEditorCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\sql\SqlResultCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\sql\SqlResultCtrl.Designer.cs">
+      <DependentUpon>SqlResultCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\sql\SqlResultMessageCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\sql\SqlResultMessageCtrl.Designer.cs">
+      <DependentUpon>SqlResultMessageCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\sql\SqlTableTreeCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\sql\SqlTableTreeCtrl.Designer.cs">
+      <DependentUpon>SqlTableTreeCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DisqualifiedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\DisqualifiedForm.Designer.cs">
+      <DependentUpon>DisqualifiedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\PrerequisiteInstaller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\PrerequisiteInstaller.Designer.cs">
+      <DependentUpon>PrerequisiteInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\SqlHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\SqlHistoryForm.Designer.cs">
+      <DependentUpon>SqlHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\InstructionsCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\InstructionsCtrl.Designer.cs">
+      <DependentUpon>InstructionsCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\programming\ProgrammingCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\programming\ProgrammingCtrl.Designer.cs">
+      <DependentUpon>ProgrammingCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\MessageBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\MessageBoxForm.Designer.cs">
+      <DependentUpon>MessageBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\objective\ObjectiveCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\objective\ObjectiveCtrl.Designer.cs">
+      <DependentUpon>ObjectiveCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\QuestionsSummaryCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\QuestionsSummaryCtrl.Designer.cs">
+      <DependentUpon>QuestionsSummaryCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\objective\ObjectiveQuestionCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\objective\ObjectiveQuestionCtrl.Designer.cs">
+      <DependentUpon>ObjectiveQuestionCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\objective\ObjectiveQuestionsNavigationCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\objective\ObjectiveQuestionsNavigationCtrl.Designer.cs">
+      <DependentUpon>ObjectiveQuestionsNavigationCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\objective\ObjectiveQuestionsStatusCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\objective\ObjectiveQuestionsStatusCtrl.Designer.cs">
+      <DependentUpon>ObjectiveQuestionsStatusCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\objective\ObjectiveQuestionsStatusItemCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\objective\ObjectiveQuestionsStatusItemCtrl.Designer.cs">
+      <DependentUpon>ObjectiveQuestionsStatusItemCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webcam\ImageCaptureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Webcam\ImageCaptureForm.Designer.cs">
+      <DependentUpon>ImageCaptureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskManager\TaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskManager\TaskForm.Designer.cs">
+      <DependentUpon>TaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskManager\TaskItemCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaskManager\TaskItemCtrl.Designer.cs">
+      <DependentUpon>TaskItemCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="..\Common\Forms\WebViewerForm.resx">
+      <Link>forms\WebViewerForm.resx</Link>
+      <DependentUpon>WebViewerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\objective\ObjectiveQuestionCtrl.resx">
+      <DependentUpon>ObjectiveQuestionCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\objective\ObjectiveQuestionsNavigationCtrl.resx">
+      <DependentUpon>ObjectiveQuestionsNavigationCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\objective\ObjectiveQuestionsStatusCtrl.resx">
+      <DependentUpon>ObjectiveQuestionsStatusCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\objective\ObjectiveQuestionsStatusItemCtrl.resx">
+      <DependentUpon>ObjectiveQuestionsStatusItemCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\programming\algo\AlgoCtrl.resx">
+      <DependentUpon>AlgoCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\programming\code\CodeCmdCtrl.resx">
+      <DependentUpon>CodeCmdCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\programming\code\CodeCtrl.resx">
+      <DependentUpon>CodeCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\programming\code\CodeEditorCtrl.resx">
+      <DependentUpon>CodeEditorCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\programming\code\CodeOutputCtrl.resx">
+      <DependentUpon>CodeOutputCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\programming\desc\DescCtrl.resx">
+      <DependentUpon>DescCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\webprogramming\WebCmdCtrl.resx">
+      <DependentUpon>WebCmdCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\webprogramming\WebCtrl.resx">
+      <DependentUpon>WebCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\webprogramming\WebEditorCtrl.resx">
+      <DependentUpon>WebEditorCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\webprogramming\WebFilesCtrl.resx">
+      <DependentUpon>WebFilesCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\BrowserForm.resx">
+      <DependentUpon>BrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\SubmitPreviewCtrl.resx">
+      <DependentUpon>SubmitPreviewCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\QuestionViewCtrl.resx">
+      <DependentUpon>QuestionViewCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\objective\ObjectiveOptionsCtrl.resx">
+      <DependentUpon>ObjectiveOptionsCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\sql\SqlCommandCtrl.resx">
+      <DependentUpon>SqlCommandCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\sql\SqlCtrl.resx">
+      <DependentUpon>SqlCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\sql\SqlEditorCtrl.resx">
+      <DependentUpon>SqlEditorCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\sql\SqlResultCtrl.resx">
+      <DependentUpon>SqlResultCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\sql\SqlResultMessageCtrl.resx">
+      <DependentUpon>SqlResultMessageCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\sql\SqlTableTreeCtrl.resx">
+      <DependentUpon>SqlTableTreeCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\TestInfoCtrl.resx">
+      <DependentUpon>TestInfoCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\DisqualifiedForm.resx">
+      <DependentUpon>DisqualifiedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\PrerequisiteInstaller.resx">
+      <DependentUpon>PrerequisiteInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\SqlHistoryForm.resx">
+      <DependentUpon>SqlHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\InstructionsCtrl.resx">
+      <DependentUpon>InstructionsCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\programming\ProgrammingCtrl.resx">
+      <DependentUpon>ProgrammingCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\MessageBoxForm.resx">
+      <DependentUpon>MessageBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\objective\ObjectiveCtrl.resx">
+      <DependentUpon>ObjectiveCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\QuestionsSummaryCtrl.resx">
+      <DependentUpon>QuestionsSummaryCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Webcam\ImageCaptureForm.resx">
+      <DependentUpon>ImageCaptureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskManager\TaskForm.resx">
+      <DependentUpon>TaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskManager\TaskItemCtrl.resx">
+      <DependentUpon>TaskItemCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\SubmitForm.resx">
+      <DependentUpon>SubmitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrls\question\QuestionsListCtrl.resx">
+      <DependentUpon>QuestionsListCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\TermsAndConditionsForm.resx">
+      <DependentUpon>TermsAndConditionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Webcam\VideoPreviewForm.resx">
+      <DependentUpon>VideoPreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Webcam\WebcamRequiredMessageForm.resx">
+      <DependentUpon>WebcamRequiredMessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\TestService\ClientService.wsdl" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="forms\SubmitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\SubmitForm.Designer.cs">
+      <DependentUpon>SubmitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\question\QuestionsListCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\question\QuestionsListCtrl.Designer.cs">
+      <DependentUpon>QuestionsListCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\TermsAndConditionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\TermsAndConditionsForm.Designer.cs">
+      <DependentUpon>TermsAndConditionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\TestInfoCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrls\TestInfoCtrl.Designer.cs">
+      <DependentUpon>TestInfoCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webcam\WebcamRequiredMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Webcam\WebcamRequiredMessageForm.Designer.cs">
+      <DependentUpon>WebcamRequiredMessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webcam\VideoPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Webcam\VideoPreviewForm.Designer.cs">
+      <DependentUpon>VideoPreviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\TestService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:49502/NvnTest.Web/Services/ClientService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TestService\</RelPath>
+      <UpdateFromURL>http://localhost:49502/NvnTest.Web/Services/ClientService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>NvnTest_Client_TestService_ClientService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <Content Include="syntax\C.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\MySQL_SQL.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Web References\TestService\ClientService.disco" />
+    <None Include="Web References\TestService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Common\db">
+      <Link>db</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Common\run.bat">
+      <Link>run.bat</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Common\runjava.bat">
+      <Link>runjava.bat</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="NvnTest.Candidate_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Resources\timer.png" />
+    <None Include="Resources\questions.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\select.png" />
+    <None Include="Resources\clear.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\build.png" />
+    <None Include="Resources\run.png" />
+    <None Include="Resources\pause.png" />
+    <None Include="Resources\history.png" />
+    <None Include="Resources\view.png" />
+    <None Include="Resources\terms.png" />
+    <None Include="Resources\csharp.png" />
+    <None Include="Resources\internet.png" />
+    <None Include="Resources\browser_back.png" />
+    <None Include="Resources\browser_forward.png" />
+    <None Include="Resources\browser.png" />
+    <None Include="Resources\html_16.png" />
+    <None Include="Resources\js_16.png" />
+    <None Include="Resources\aspx_16.png" />
+    <None Include="Resources\css_16.png" />
+    <None Include="Resources\folder_16.png" />
+    <None Include="Resources\cpp.png" />
+    <None Include="Resources\java.png" />
+    <None Include="Resources\vbnet.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\next.png" />
+    <None Include="Resources\prev.png" />
+    <None Include="Resources\flag.png" />
+    <None Include="Resources\undo.png" />
+    <Content Include="syntax\CSharp.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\Java.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\ASP.Syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\CSS.Syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\JavaScript.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\XML.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\CPP.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\VBNET.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Web References\TestService\CompilerMessage.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\Questions.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\Plain.png" />
+    <None Include="Resources\desc.png" />
+    <None Include="Resources\algo.png" />
+    <None Include="Resources\c.png" />
+    <None Include="Resources\database.png" />
+    <None Include="Resources\objective.png" />
+    <None Include="Web References\TestService\TestInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\TestSchedule.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <Content Include="template\aspdotnet.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\c.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\cpp.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\vbnet.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\css.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\html.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\java.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\csharp.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\javascript.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NvnTest.Common\NvnTest.Common.csproj">
+      <Project>{66554A81-91F3-4836-B15D-735F323D12BC}</Project>
+      <Name>NvnTest.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

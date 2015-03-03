@@ -1,0 +1,72 @@
+﻿import java.io.*;
+import java.net.*;
+
+class Program {
+	private static String outPath;
+	
+    public static void main(String[] args) {	
+		outPath = System.getProperty("java.class.path") + "\\out";
+
+		File directory = new File(outPath);
+		if(directory.exists()){
+			delete(directory);
+		}
+		
+		directory.mkdir();
+		
+        ###TestCases
+    }
+		
+	private static void ProcessTestCase(int testCaseIndex, String inputValues, String expectedValue, String outputValue, boolean match) {
+		String message = GetNewLine() + "********** Test case: " + testCaseIndex + " **********" + GetNewLine() + GetNewLine();
+		// Show input values
+        message += "Input values:" + GetNewLine();
+        message += inputValues + GetNewLine() + GetNewLine();
+
+        message += "Expected value:" + expectedValue + GetNewLine();
+
+        message += "Output value:" + outputValue + GetNewLine() + GetNewLine();
+
+        message += "Status:" + (match ? "SUCCESS" : "FAIL") + GetNewLine();System.out.println(message);
+
+        String filename = outPath + "\\" + testCaseIndex + ".txt";System.out.println(filename);
+
+		try {
+			BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+			writer.write(message);
+			writer.close();
+		} catch(IOException exc){ }
+	}
+	
+	private static boolean Assert(String expectedValue, String value) {
+		return expectedValue.equals(value);
+	}
+
+	private static boolean Assert(int expectedValue, int value) {
+		return expectedValue == value;
+	}
+	
+	private static String GetNewLine(){
+		return System.getProperty("line.separator");
+	}
+	
+	private static void delete(File file) {
+    	if(file.isDirectory()){
+    		if(file.list().length == 0){
+    		   file.delete();
+    		} else {
+        	   String files[] = file.list();
+        	   for (String temp : files) {
+        	      File fileDelete = new File(file, temp);
+        	      delete(fileDelete);
+        	   }
+ 
+        	   if(file.list().length==0){
+           	     file.delete();
+        	   }
+    		} 
+    	} else {
+    		file.delete();
+    	}
+    }
+}

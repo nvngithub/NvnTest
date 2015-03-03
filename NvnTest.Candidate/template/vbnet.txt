@@ -1,0 +1,7 @@
+﻿Imports System
+
+Public Module modmain
+   Sub Main()
+     
+   End Sub
+End Module

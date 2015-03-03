@@ -1,0 +1,3 @@
+﻿Public Class Test
+	###FunctionSignature
+End Class

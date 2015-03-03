@@ -1,0 +1,50 @@
+﻿Imports System
+Imports System.IO
+Imports System.Reflection
+
+Module Module1
+    Dim outPath As String = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + Path.DirectorySeparatorChar + "out\"
+
+    Sub Main()
+        If Directory.Exists(outPath) Then
+            Directory.Delete(outPath, True)
+        End If
+
+        Directory.CreateDirectory(outPath)
+
+        ###TestCases
+
+    End Sub
+
+    Sub ProcessTestCase(ByVal testCaseIndex As Integer, ByVal inputValues As String, ByVal expectedValue As String, ByVal outputValue As String, ByVal match As Boolean)
+        Dim message As String = Environment.NewLine + "********** Test case: " + testCaseIndex.ToString() + " **********" + Environment.NewLine + Environment.NewLine
+        ' Show input values
+        message += "Input values:" + Environment.NewLine
+        message += inputValues + Environment.NewLine + Environment.NewLine
+
+        message += "Expected value:" + expectedValue + Environment.NewLine
+
+        message += "Output value:" + outputValue + Environment.NewLine + Environment.NewLine
+
+        message += "Status:"
+        
+        If match Then
+            message += "SUCCESS"
+        Else
+            message += "FAIL"
+        End If
+
+        Dim filename As String = outPath + testCaseIndex.ToString() + ".txt"
+
+        File.WriteAllText(filename, message)
+    End Sub
+
+    Function Assert(ByVal expectedValue As String, ByVal value As String) As Boolean
+        Return expectedValue = value
+    End Function
+
+    Function Assert(ByVal expectedValue As Integer, ByVal value As Integer) As Boolean
+        Return expectedValue = value
+    End Function
+
+End Module

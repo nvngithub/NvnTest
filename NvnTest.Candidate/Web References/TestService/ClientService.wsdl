@@ -1,0 +1,992 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.coderlabz.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.coderlabz.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.coderlabz.com/">
+      <s:element name="Authenticate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateResult" type="tns:TestSchedule" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TestSchedule">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ServiceDataBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PaperId" type="s:unsignedInt" />
+              <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ScheduleDateTime" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="DaysLimit" type="s:unsignedInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="Duration" type="s:unsignedInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="TestTakenDateTime" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:TestStatus" />
+              <s:element minOccurs="1" maxOccurs="1" name="LiveImage" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="WebReference" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="TestAnswers" type="tns:TestAnswers" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ServiceDataBase" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:unsignedInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdminId" type="s:unsignedInt" />
+          <s:element minOccurs="0" maxOccurs="1" name="TempId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TestStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="New" />
+          <s:enumeration value="Taken" />
+          <s:enumeration value="Submitted" />
+          <s:enumeration value="Disqualified" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="TestAnswers">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TestId" type="s:unsignedInt" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObjectiveQuestionTestAnswers" type="tns:ArrayOfObjectiveQuestionTestAnswer" />
+          <s:element minOccurs="0" maxOccurs="1" name="SqlQuestionTestAnswers" type="tns:ArrayOfSqlQuestionTestAnswer" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProgrammingQuestionTestAnswers" type="tns:ArrayOfProgrammingQuestionTestAnswer" />
+          <s:element minOccurs="0" maxOccurs="1" name="AutoProgrammingQuestionTestAnswers" type="tns:ArrayOfAutoProgrammingQuestionTestAnswer" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebPogrammingQuestionTestAnswers" type="tns:ArrayOfWebProgrammingQuestionTestAnswer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfObjectiveQuestionTestAnswer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ObjectiveQuestionTestAnswer" nillable="true" type="tns:ObjectiveQuestionTestAnswer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ObjectiveQuestionTestAnswer">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:TestAnswerBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="SelectedOptions" type="tns:ArrayOfInt" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TestAnswerBase" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:unsignedInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="TestId" type="s:unsignedInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuestionId" type="s:unsignedInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:QuestionType" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="QuestionType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Objective" />
+          <s:enumeration value="Sql" />
+          <s:enumeration value="Programming" />
+          <s:enumeration value="AutoProgramming" />
+          <s:enumeration value="WebProgramming" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="WebProgrammingQuestionTestAnswer">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:TestAnswerBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="WebNode" type="tns:WebNode" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="WebNode">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:WebNodeType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nodes" type="tns:ArrayOfWebNode" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="WebNodeType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Directory" />
+          <s:enumeration value="CSS" />
+          <s:enumeration value="JavaScript" />
+          <s:enumeration value="HTML" />
+          <s:enumeration value="ASP_DOT_NET" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfWebNode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebNode" nillable="true" type="tns:WebNode" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AutoProgrammingQuestionTestAnswer">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:TestAnswerBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Exe" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExeCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AnswerType" type="tns:ProgrammingAnswerType" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="ProgrammingAnswerType">
+        <s:restriction base="s:string">
+          <s:enumeration value="C" />
+          <s:enumeration value="CPP" />
+          <s:enumeration value="CSharp" />
+          <s:enumeration value="VBNET" />
+          <s:enumeration value="Java" />
+          <s:enumeration value="Algo" />
+          <s:enumeration value="Desc" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ProgrammingQuestionTestAnswer">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:TestAnswerBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Exe" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExeCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AnswerType" type="tns:ProgrammingAnswerType" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SqlQuestionTestAnswer">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:TestAnswerBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Sql" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSqlQuestionTestAnswer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SqlQuestionTestAnswer" nillable="true" type="tns:SqlQuestionTestAnswer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProgrammingQuestionTestAnswer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProgrammingQuestionTestAnswer" nillable="true" type="tns:ProgrammingQuestionTestAnswer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAutoProgrammingQuestionTestAnswer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AutoProgrammingQuestionTestAnswer" nillable="true" type="tns:AutoProgrammingQuestionTestAnswer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWebProgrammingQuestionTestAnswer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebProgrammingQuestionTestAnswer" nillable="true" type="tns:WebProgrammingQuestionTestAnswer" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetQuestions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="paperId" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuestionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQuestionsResult" type="tns:Questions" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Questions">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ObjectiveQuestions" type="tns:ArrayOfObjectiveQuestion" />
+          <s:element minOccurs="0" maxOccurs="1" name="SQLQuestions" type="tns:ArrayOfSqlQuestion" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProgrammingQuestions" type="tns:ArrayOfProgrammingQuestion" />
+          <s:element minOccurs="0" maxOccurs="1" name="AutoProgrammingQuestions" type="tns:ArrayOfAutoProgrammingQuestion" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebProgrammingQuestions" type="tns:ArrayOfWebProgrammingQuestion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfObjectiveQuestion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ObjectiveQuestion" nillable="true" type="tns:ObjectiveQuestion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ObjectiveQuestion">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:QuestionBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Options" type="tns:ArrayOfString" />
+              <s:element minOccurs="0" maxOccurs="1" name="Answers" type="tns:ArrayOfString" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="QuestionBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ServiceDataBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:QuestionType" />
+              <s:element minOccurs="0" maxOccurs="1" name="Desc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Categories" type="tns:ArrayOfString" />
+              <s:element minOccurs="1" maxOccurs="1" name="DifficultyLevel" type="s:unsignedInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="DateTimeCreated" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="DateTimeModified" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="Deleted" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WebProgrammingQuestion">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:QuestionBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AutoProgrammingQuestion">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:QuestionBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Config" type="tns:AutoQuestionSignatureConfig" />
+              <s:element minOccurs="0" maxOccurs="1" name="TestCases" type="tns:ArrayOfAutoQuestionTestCase" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AutoQuestionSignatureConfig">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnType" type="tns:AutoQuestionValueType" />
+          <s:element minOccurs="0" maxOccurs="1" name="FunctionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Inputs" type="tns:ArrayOfFunctionInput" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AutoQuestionValueType">
+        <s:restriction base="s:string">
+          <s:enumeration value="String" />
+          <s:enumeration value="Integer" />
+          <s:enumeration value="Long" />
+          <s:enumeration value="Float" />
+          <s:enumeration value="Double" />
+          <s:enumeration value="Boolean" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfFunctionInput">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FunctionInput" nillable="true" type="tns:FunctionInput" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FunctionInput">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ArgType" type="tns:AutoQuestionValueType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAutoQuestionTestCase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AutoQuestionTestCase" nillable="true" type="tns:AutoQuestionTestCase" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AutoQuestionTestCase">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsAllowedInTestMode" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpectedValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InputValues" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProgrammingQuestion">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:QuestionBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SqlQuestion">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:QuestionBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Tables" type="tns:ArrayOfSqlTable" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExpectedResultSql" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfSqlTable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SqlTable" nillable="true" type="tns:SqlTable" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SqlTable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateTableSql" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TableDataSql" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSqlQuestion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SqlQuestion" nillable="true" type="tns:SqlQuestion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProgrammingQuestion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProgrammingQuestion" nillable="true" type="tns:ProgrammingQuestion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAutoProgrammingQuestion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AutoProgrammingQuestion" nillable="true" type="tns:AutoProgrammingQuestion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWebProgrammingQuestion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebProgrammingQuestion" nillable="true" type="tns:WebProgrammingQuestion" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateTestStarted">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="testId" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTestStartedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateTestStartedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCandidateDisqualified">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="schedule" type="tns:TestSchedule" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCandidateDisqualifiedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetCandidateDisqualifiedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTestInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTestInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTestInfoResult" type="tns:TestInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TestInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EmployerName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuestionsCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CompileCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="answerType" type="tns:ProgrammingAnswerType" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompileCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CompileCodeResult" type="tns:CompilerMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CompilerMessage">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Exe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Exe1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AutoCompileCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="question" type="tns:AutoProgrammingQuestion" />
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="answerType" type="tns:ProgrammingAnswerType" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AutoCompileCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AutoCompileCodeResult" type="tns:CompilerMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTemplateCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="question" type="tns:AutoProgrammingQuestion" />
+            <s:element minOccurs="1" maxOccurs="1" name="answerType" type="tns:ProgrammingAnswerType" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTemplateCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTemplateCodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitAnswers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="answers" type="tns:TestAnswers" />
+            <s:element minOccurs="0" maxOccurs="1" name="schedule" type="tns:TestSchedule" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitAnswersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SubmitAnswersResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWebsitesVisited">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="testId" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="urls" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWebsitesVisitedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateWebsitesVisitedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateApplicationsIgnored">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="testId" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="apps" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateApplicationsIgnoredResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateApplicationsIgnoredResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendErrorMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendErrorMessageResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SubmitTestImages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testImages" type="tns:ArrayOfTestImage" />
+            <s:element minOccurs="1" maxOccurs="1" name="testId" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTestImage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TestImage" nillable="true" type="tns:TestImage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TestImage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Stream" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SubmitTestImagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SubmitTestImagesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveWebPages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="webNode" type="tns:WebNode" />
+            <s:element minOccurs="0" maxOccurs="1" name="uniqueId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveWebPagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveWebPagesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AuthenticateSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetQuestionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetQuestions" />
+  </wsdl:message>
+  <wsdl:message name="GetQuestionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTestStartedSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTestStarted" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTestStartedSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTestStartedResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCandidateDisqualifiedSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCandidateDisqualified" />
+  </wsdl:message>
+  <wsdl:message name="SetCandidateDisqualifiedSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCandidateDisqualifiedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTestInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTestInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetTestInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTestInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CompileCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:CompileCode" />
+  </wsdl:message>
+  <wsdl:message name="CompileCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:CompileCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AutoCompileCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:AutoCompileCode" />
+  </wsdl:message>
+  <wsdl:message name="AutoCompileCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:AutoCompileCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTemplateCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTemplateCode" />
+  </wsdl:message>
+  <wsdl:message name="GetTemplateCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTemplateCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitAnswersSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitAnswers" />
+  </wsdl:message>
+  <wsdl:message name="SubmitAnswersSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitAnswersResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWebsitesVisitedSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWebsitesVisited" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWebsitesVisitedSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWebsitesVisitedResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateApplicationsIgnoredSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateApplicationsIgnored" />
+  </wsdl:message>
+  <wsdl:message name="UpdateApplicationsIgnoredSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateApplicationsIgnoredResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendErrorMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SendErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="SendErrorMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SendErrorMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitTestImagesSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitTestImages" />
+  </wsdl:message>
+  <wsdl:message name="SubmitTestImagesSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitTestImagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveWebPagesSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveWebPages" />
+  </wsdl:message>
+  <wsdl:message name="SaveWebPagesSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveWebPagesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ClientServiceSoap">
+    <wsdl:operation name="Authenticate">
+      <wsdl:input message="tns:AuthenticateSoapIn" />
+      <wsdl:output message="tns:AuthenticateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestions">
+      <wsdl:input message="tns:GetQuestionsSoapIn" />
+      <wsdl:output message="tns:GetQuestionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTestStarted">
+      <wsdl:input message="tns:UpdateTestStartedSoapIn" />
+      <wsdl:output message="tns:UpdateTestStartedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCandidateDisqualified">
+      <wsdl:input message="tns:SetCandidateDisqualifiedSoapIn" />
+      <wsdl:output message="tns:SetCandidateDisqualifiedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTestInfo">
+      <wsdl:input message="tns:GetTestInfoSoapIn" />
+      <wsdl:output message="tns:GetTestInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CompileCode">
+      <wsdl:input message="tns:CompileCodeSoapIn" />
+      <wsdl:output message="tns:CompileCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoCompileCode">
+      <wsdl:input message="tns:AutoCompileCodeSoapIn" />
+      <wsdl:output message="tns:AutoCompileCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateCode">
+      <wsdl:input message="tns:GetTemplateCodeSoapIn" />
+      <wsdl:output message="tns:GetTemplateCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitAnswers">
+      <wsdl:input message="tns:SubmitAnswersSoapIn" />
+      <wsdl:output message="tns:SubmitAnswersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWebsitesVisited">
+      <wsdl:input message="tns:UpdateWebsitesVisitedSoapIn" />
+      <wsdl:output message="tns:UpdateWebsitesVisitedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApplicationsIgnored">
+      <wsdl:input message="tns:UpdateApplicationsIgnoredSoapIn" />
+      <wsdl:output message="tns:UpdateApplicationsIgnoredSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendErrorMessage">
+      <wsdl:input message="tns:SendErrorMessageSoapIn" />
+      <wsdl:output message="tns:SendErrorMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitTestImages">
+      <wsdl:input message="tns:SubmitTestImagesSoapIn" />
+      <wsdl:output message="tns:SubmitTestImagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveWebPages">
+      <wsdl:input message="tns:SaveWebPagesSoapIn" />
+      <wsdl:output message="tns:SaveWebPagesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClientServiceSoap" type="tns:ClientServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://www.coderlabz.com/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestions">
+      <soap:operation soapAction="http://www.coderlabz.com/GetQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTestStarted">
+      <soap:operation soapAction="http://www.coderlabz.com/UpdateTestStarted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCandidateDisqualified">
+      <soap:operation soapAction="http://www.coderlabz.com/SetCandidateDisqualified" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTestInfo">
+      <soap:operation soapAction="http://www.coderlabz.com/GetTestInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompileCode">
+      <soap:operation soapAction="http://www.coderlabz.com/CompileCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoCompileCode">
+      <soap:operation soapAction="http://www.coderlabz.com/AutoCompileCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateCode">
+      <soap:operation soapAction="http://www.coderlabz.com/GetTemplateCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitAnswers">
+      <soap:operation soapAction="http://www.coderlabz.com/SubmitAnswers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWebsitesVisited">
+      <soap:operation soapAction="http://www.coderlabz.com/UpdateWebsitesVisited" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApplicationsIgnored">
+      <soap:operation soapAction="http://www.coderlabz.com/UpdateApplicationsIgnored" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendErrorMessage">
+      <soap:operation soapAction="http://www.coderlabz.com/SendErrorMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitTestImages">
+      <soap:operation soapAction="http://www.coderlabz.com/SubmitTestImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveWebPages">
+      <soap:operation soapAction="http://www.coderlabz.com/SaveWebPages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClientServiceSoap12" type="tns:ClientServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authenticate">
+      <soap12:operation soapAction="http://www.coderlabz.com/Authenticate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestions">
+      <soap12:operation soapAction="http://www.coderlabz.com/GetQuestions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTestStarted">
+      <soap12:operation soapAction="http://www.coderlabz.com/UpdateTestStarted" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCandidateDisqualified">
+      <soap12:operation soapAction="http://www.coderlabz.com/SetCandidateDisqualified" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTestInfo">
+      <soap12:operation soapAction="http://www.coderlabz.com/GetTestInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompileCode">
+      <soap12:operation soapAction="http://www.coderlabz.com/CompileCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoCompileCode">
+      <soap12:operation soapAction="http://www.coderlabz.com/AutoCompileCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateCode">
+      <soap12:operation soapAction="http://www.coderlabz.com/GetTemplateCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitAnswers">
+      <soap12:operation soapAction="http://www.coderlabz.com/SubmitAnswers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWebsitesVisited">
+      <soap12:operation soapAction="http://www.coderlabz.com/UpdateWebsitesVisited" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApplicationsIgnored">
+      <soap12:operation soapAction="http://www.coderlabz.com/UpdateApplicationsIgnored" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendErrorMessage">
+      <soap12:operation soapAction="http://www.coderlabz.com/SendErrorMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitTestImages">
+      <soap12:operation soapAction="http://www.coderlabz.com/SubmitTestImages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveWebPages">
+      <soap12:operation soapAction="http://www.coderlabz.com/SaveWebPages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClientService">
+    <wsdl:port name="ClientServiceSoap" binding="tns:ClientServiceSoap">
+      <soap:address location="http://localhost:49502/NvnTest.Web/Services/ClientService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ClientServiceSoap12" binding="tns:ClientServiceSoap12">
+      <soap12:address location="http://localhost:49502/NvnTest.Web/Services/ClientService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

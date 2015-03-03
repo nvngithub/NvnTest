@@ -1,0 +1,17 @@
+﻿#include <stdio.h>
+#include <string.h>
+#include <conio.h>
+#include <dir.h>
+#include <windows.h>
+
+###FunctionSignature
+FILE *fp;
+###ReturnType val;
+
+void main()
+{	
+    CreateDirectory (".\\out\\out", NULL);
+    ###TestCases
+}   
+
+###Code

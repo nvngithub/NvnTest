@@ -1,0 +1,876 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3F02D4F2-D645-4C1B-9344-7AB2509180DD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NvnTest.Employer</RootNamespace>
+    <AssemblyName>Coderlabz.Employer</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+    <TargetZone>LocalIntranet</TargetZone>
+    <GenerateManifests>true</GenerateManifests>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <ApplicationIcon>NvnTest.ico</ApplicationIcon>
+    <ManifestCertificateThumbprint>9345C9E5E5B94FB81DC2E7F967DB0F36AC226E54</ManifestCertificateThumbprint>
+    <ManifestKeyFile>NvnTest.Employer_TemporaryKey.pfx</ManifestKeyFile>
+    <SignManifests>true</SignManifests>
+    <PublishUrl>C:\Users\Naveen Hegde\Desktop\NvnTest\Build\Coderlabz.Employer\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.coderlabz.com/app/emp/</InstallUrl>
+    <SupportUrl>http://www.coderlabz.com/</SupportUrl>
+    <ProductName>Coderlabz.Employer</ProductName>
+    <PublisherName>Coderlabz</PublisherName>
+    <ApplicationRevision>57</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;Admin, LIVE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;Admin, LIVE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Alsing.SyntaxBox, Version=1.4.10.19575, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Alsing.SyntaxBox.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Common\CommonClasses.cs">
+      <Link>CommonClasses.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Forms\WebViewerForm.cs">
+      <Link>schedules\report\WebViewerForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\Common\Forms\WebViewerForm.designer.cs">
+      <Link>schedules\report\WebViewerForm.designer.cs</Link>
+      <DependentUpon>WebViewerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\AutoProgramming\AddEditTestCaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="questions\AutoProgramming\AddEditTestCaseForm.Designer.cs">
+      <DependentUpon>AddEditTestCaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\AutoProgramming\ArgumentItemCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="questions\AutoProgramming\ArgumentItemCtrl.Designer.cs">
+      <DependentUpon>ArgumentItemCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\AutoProgramming\TestCaseCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="questions\AutoProgramming\TestCaseCtrl.Designer.cs">
+      <DependentUpon>TestCaseCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\AutoProgramming\FunctionSignatureCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="questions\AutoProgramming\FunctionSignatureCtrl.Designer.cs">
+      <DependentUpon>FunctionSignatureCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\AutoProgramming\AddEditAutoProgrammingQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="questions\AutoProgramming\AddEditAutoProgrammingQuestionForm.Designer.cs">
+      <DependentUpon>AddEditAutoProgrammingQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="papers\AutoPaperConfigItemCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="papers\AutoPaperConfigItemCtrl.Designer.cs">
+      <DependentUpon>AutoPaperConfigItemCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="papers\AddEditAutoPaperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="papers\AddEditAutoPaperForm.Designer.cs">
+      <DependentUpon>AddEditAutoPaperForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\QuestionLevel\AddEditQuestionLevelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="questions\QuestionLevel\AddEditQuestionLevelForm.Designer.cs">
+      <DependentUpon>AddEditQuestionLevelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\QuestionCategories\QuestionCategoryItemCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="questions\QuestionCategories\QuestionCategoryItemCtrl.Designer.cs">
+      <DependentUpon>QuestionCategoryItemCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\QuestionCategories\AddEditQuestionCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="questions\QuestionCategories\AddEditQuestionCategoryForm.Designer.cs">
+      <DependentUpon>AddEditQuestionCategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\QuestionLevel\QuestionLevelsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="questions\QuestionLevel\QuestionLevelsForm.Designer.cs">
+      <DependentUpon>QuestionLevelsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\QuestionCategories\QuestionCategoriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="questions\QuestionCategories\QuestionCategoriesForm.Designer.cs">
+      <DependentUpon>QuestionCategoriesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="schedules\report\ApplicationsIgnoredForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="schedules\report\ApplicationsIgnoredForm.Designer.cs">
+      <DependentUpon>ApplicationsIgnoredForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="schedules\BulkScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="schedules\BulkScheduleForm.Designer.cs">
+      <DependentUpon>BulkScheduleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\QuestionCategories\SelectQuestionCategoryCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="questions\QuestionCategories\SelectQuestionCategoryCtrl.Designer.cs">
+      <DependentUpon>SelectQuestionCategoryCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\QuestionLevel\SelectQuestionLevelCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="questions\QuestionLevel\SelectQuestionLevelCtrl.Designer.cs">
+      <DependentUpon>SelectQuestionLevelCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\AutoProgramming\TestCaseInputCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="questions\AutoProgramming\TestCaseInputCtrl.Designer.cs">
+      <DependentUpon>TestCaseInputCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\AutoProgramming\TestCaseItemCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="questions\AutoProgramming\TestCaseItemCtrl.Designer.cs">
+      <DependentUpon>TestCaseItemCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usr\extension\AddEditUserExtensionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usr\extension\AddEditUserExtensionForm.Designer.cs">
+      <DependentUpon>AddEditUserExtensionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\ImportExport\ImportQuestionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="questions\ImportExport\ImportQuestionsForm.Designer.cs">
+      <DependentUpon>ImportQuestionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\webprogramming\AddEditWebProgrammingQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="questions\webprogramming\AddEditWebProgrammingQuestionForm.Designer.cs">
+      <DependentUpon>AddEditWebProgrammingQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\programming\AddEditProgrammingQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="questions\programming\AddEditProgrammingQuestionForm.Designer.cs">
+      <DependentUpon>AddEditProgrammingQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="schedules\report\ExeLaunchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="schedules\report\ExeLaunchForm.Designer.cs">
+      <DependentUpon>ExeLaunchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes.cs" />
+    <Compile Include="schedules\report\datagrid print\CodeEnum.cs" />
+    <Compile Include="schedules\report\datagrid print\DocumentMetrics.cs" />
+    <Compile Include="schedules\report\datagrid print\GridDrawer.cs" />
+    <Compile Include="schedules\report\datagrid print\GridHelper.cs" />
+    <Compile Include="schedules\report\datagrid print\Partition.cs" />
+    <Compile Include="schedules\report\datagrid print\PartitionBounds.cs" />
+    <Compile Include="schedules\report\datagrid print\PrintBlock.cs" />
+    <Compile Include="schedules\report\datagrid print\PrintingDataGridViewProvider.cs" />
+    <Compile Include="schedules\report\datagrid print\TitlePrintBlock.cs" />
+    <Compile Include="schedules\report\rtf\RtfAbstract.cs" />
+    <Compile Include="schedules\report\rtf\RtfBasics.cs" />
+    <Compile Include="schedules\report\rtf\RtfBlockList.cs" />
+    <Compile Include="schedules\report\rtf\RtfCharFormat.cs" />
+    <Compile Include="schedules\report\rtf\RtfDocument.cs" />
+    <Compile Include="schedules\report\rtf\RtfFieldControlWord.cs" />
+    <Compile Include="schedules\report\rtf\RtfFootnote.cs" />
+    <Compile Include="schedules\report\rtf\RtfHeaderFooter.cs" />
+    <Compile Include="schedules\report\rtf\RtfImage.cs" />
+    <Compile Include="schedules\report\rtf\RtfParagraph.cs" />
+    <Compile Include="schedules\report\rtf\RtfTable.cs" />
+    <Compile Include="schedules\report\rtf\RtfTableCell.cs" />
+    <Compile Include="schedules\report\rtf\RtfUtility.cs" />
+    <Compile Include="schedules\TestPurchaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="schedules\TestPurchaseForm.Designer.cs">
+      <DependentUpon>TestPurchaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="schedules\report\TestResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="schedules\report\TestResultForm.Designer.cs">
+      <DependentUpon>TestResultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\DescriptionCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="questions\DescriptionCtrl.Designer.cs">
+      <DependentUpon>DescriptionCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\sql\DefineSqlTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="questions\sql\DefineSqlTableForm.Designer.cs">
+      <DependentUpon>DefineSqlTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\sql\DataTableCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="questions\sql\DataTableCtrl.Designer.cs">
+      <DependentUpon>DataTableCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="papers\AddEditPaperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="papers\AddEditPaperForm.Designer.cs">
+      <DependentUpon>AddEditPaperForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="schedules\AddEditTestScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="schedules\AddEditTestScheduleForm.Designer.cs">
+      <DependentUpon>AddEditTestScheduleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\sql\AddEditSqlQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="questions\sql\AddEditSqlQuestionForm.Designer.cs">
+      <DependentUpon>AddEditSqlQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\objective\AddEditObjectiveQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="questions\objective\AddEditObjectiveQuestionForm.Designer.cs">
+      <DependentUpon>AddEditObjectiveQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="main\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="papers\PapersCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="papers\PapersCtrl.Designer.cs">
+      <DependentUpon>PapersCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\objective\ObjectiveQuestionItemCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="questions\objective\ObjectiveQuestionItemCtrl.Designer.cs">
+      <DependentUpon>ObjectiveQuestionItemCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="main\MainCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="main\MainCtrl.Designer.cs">
+      <DependentUpon>MainCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="..\Common\Forms\WebViewerForm.resx">
+      <Link>schedules\report\WebViewerForm.resx</Link>
+      <DependentUpon>WebViewerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\AutoProgramming\AddEditTestCaseForm.resx">
+      <DependentUpon>AddEditTestCaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\AutoProgramming\ArgumentItemCtrl.resx">
+      <DependentUpon>ArgumentItemCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="papers\AddEditAutoPaperForm.resx">
+      <DependentUpon>AddEditAutoPaperForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="papers\AutoPaperConfigItemCtrl.resx">
+      <DependentUpon>AutoPaperConfigItemCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\AutoProgramming\AddEditAutoProgrammingQuestionForm.resx">
+      <DependentUpon>AddEditAutoProgrammingQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\AutoProgramming\TestCaseCtrl.resx">
+      <DependentUpon>TestCaseCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\AutoProgramming\FunctionSignatureCtrl.resx">
+      <DependentUpon>FunctionSignatureCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\AutoProgramming\TestCaseInputCtrl.resx">
+      <DependentUpon>TestCaseInputCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\AutoProgramming\TestCaseItemCtrl.resx">
+      <DependentUpon>TestCaseItemCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\QuestionCategories\AddEditQuestionCategoryForm.resx">
+      <DependentUpon>AddEditQuestionCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\QuestionCategories\QuestionCategoriesForm.resx">
+      <DependentUpon>QuestionCategoriesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\QuestionCategories\QuestionCategoryItemCtrl.resx">
+      <DependentUpon>QuestionCategoryItemCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\QuestionCategories\SelectQuestionCategoryCtrl.resx">
+      <DependentUpon>SelectQuestionCategoryCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\QuestionLevel\AddEditQuestionLevelForm.resx">
+      <DependentUpon>AddEditQuestionLevelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\QuestionLevel\QuestionLevelsForm.resx">
+      <DependentUpon>QuestionLevelsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\QuestionLevel\SelectQuestionLevelCtrl.resx">
+      <DependentUpon>SelectQuestionLevelCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="schedules\BulkScheduleForm.resx">
+      <DependentUpon>BulkScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="schedules\report\ApplicationsIgnoredForm.resx">
+      <DependentUpon>ApplicationsIgnoredForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usr\extension\AddEditUserExtensionForm.resx">
+      <DependentUpon>AddEditUserExtensionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\ImportExport\ImportQuestionsForm.resx">
+      <DependentUpon>ImportQuestionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\webprogramming\AddEditWebProgrammingQuestionForm.resx">
+      <DependentUpon>AddEditWebProgrammingQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\programming\AddEditProgrammingQuestionForm.resx">
+      <DependentUpon>AddEditProgrammingQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="schedules\report\ExeLaunchForm.resx">
+      <DependentUpon>ExeLaunchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="schedules\AddEditTestScheduleForm.resx">
+      <DependentUpon>AddEditTestScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\objective\ObjectiveQuestionItemCtrl.resx">
+      <DependentUpon>ObjectiveQuestionItemCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\sql\DataTableCtrl.resx">
+      <DependentUpon>DataTableCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\DescriptionCtrl.resx">
+      <DependentUpon>DescriptionCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\sql\DefineSqlTableForm.resx">
+      <DependentUpon>DefineSqlTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="papers\AddEditPaperForm.resx">
+      <DependentUpon>AddEditPaperForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\sql\AddEditSqlQuestionForm.resx">
+      <DependentUpon>AddEditSqlQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\objective\AddEditObjectiveQuestionForm.resx">
+      <DependentUpon>AddEditObjectiveQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="papers\PapersCtrl.resx">
+      <DependentUpon>PapersCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main\MainCtrl.resx">
+      <DependentUpon>MainCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="schedules\SchedulesCtrl.resx">
+      <DependentUpon>SchedulesCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="questions\QuestionsCtrl.resx">
+      <DependentUpon>QuestionsCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="schedules\TestPurchaseForm.resx">
+      <DependentUpon>TestPurchaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="schedules\report\TestResultForm.resx">
+      <DependentUpon>TestResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="settings\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="settings\UpdateUserInfoCtrlcs.resx">
+      <DependentUpon>UpdateUserInfoCtrlcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main\TermsForm.resx">
+      <DependentUpon>TermsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="schedules\report\TestImages\TestImagesPreviewForm.resx">
+      <DependentUpon>TestImagesPreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="schedules\report\TestImages\TestImageViewForm.resx">
+      <DependentUpon>TestImageViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="schedules\report\TestImages\TestImagePreviewCtrl.resx">
+      <DependentUpon>TestImagePreviewCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usr\extension\UserExtensionsForm.resx">
+      <DependentUpon>UserExtensionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usr\ctrls\CreateUserCheckEmailCtrl.resx">
+      <DependentUpon>CreateUserCheckEmailCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usr\ctrls\CreateUserCtrl.resx">
+      <DependentUpon>CreateUserCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usr\ctrls\ForgotPassCtrl.resx">
+      <DependentUpon>ForgotPassCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usr\ctrls\LoginCtrl.resx">
+      <DependentUpon>LoginCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usr\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usr\VarifyForm.resx">
+      <DependentUpon>VarifyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="schedules\report\WebsitesVisitedForm.resx">
+      <DependentUpon>WebsitesVisitedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\TestService\TestService.wsdl" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="schedules\SchedulesCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="schedules\SchedulesCtrl.Designer.cs">
+      <DependentUpon>SchedulesCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="questions\QuestionsCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="questions\QuestionsCtrl.Designer.cs">
+      <DependentUpon>QuestionsCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="settings\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="settings\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="settings\UpdateUserInfoCtrlcs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="settings\UpdateUserInfoCtrlcs.Designer.cs">
+      <DependentUpon>UpdateUserInfoCtrlcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="main\TermsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main\TermsForm.Designer.cs">
+      <DependentUpon>TermsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="schedules\report\TestImages\TestImagesPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="schedules\report\TestImages\TestImagesPreviewForm.Designer.cs">
+      <DependentUpon>TestImagesPreviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="schedules\report\TestImages\TestImageViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="schedules\report\TestImages\TestImageViewForm.Designer.cs">
+      <DependentUpon>TestImageViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="schedules\report\TestImages\TestImagePreviewCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="schedules\report\TestImages\TestImagePreviewCtrl.Designer.cs">
+      <DependentUpon>TestImagePreviewCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usr\extension\UserExtensionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usr\extension\UserExtensionsForm.Designer.cs">
+      <DependentUpon>UserExtensionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usr\ctrls\CreateUserCheckEmailCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usr\ctrls\CreateUserCheckEmailCtrl.Designer.cs">
+      <DependentUpon>CreateUserCheckEmailCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usr\ctrls\CreateUserCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usr\ctrls\CreateUserCtrl.Designer.cs">
+      <DependentUpon>CreateUserCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usr\ctrls\ForgotPassCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usr\ctrls\ForgotPassCtrl.Designer.cs">
+      <DependentUpon>ForgotPassCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usr\ctrls\LoginCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usr\ctrls\LoginCtrl.Designer.cs">
+      <DependentUpon>LoginCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usr\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usr\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usr\VarifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usr\VarifyForm.Designer.cs">
+      <DependentUpon>VarifyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\TestService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="schedules\report\WebsitesVisitedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="schedules\report\WebsitesVisitedForm.Designer.cs">
+      <DependentUpon>WebsitesVisitedForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:49502/NvnTest.Web/Services/TestService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TestService\</RelPath>
+      <UpdateFromURL>http://localhost:49502/NvnTest.Web/Services/TestService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>NvnTest_Admin_TestService_TestService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <Content Include="syntax\C.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Web References\TestService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\TestService\TestService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\run.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\algo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\objective.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\purchase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NvnTest.ico" />
+    <Content Include="..\Common\db">
+      <Link>db</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Common\run.bat">
+      <Link>run.bat</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Common\runjava.bat">
+      <Link>runjava.bat</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="NvnTest.Employer_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Resources\reference.png" />
+    <None Include="Resources\java.png" />
+    <None Include="Resources\csharp.png" />
+    <None Include="Resources\timer.png" />
+    <None Include="Resources\assign_to_yourself.png" />
+    <None Include="Resources\console.png" />
+    <None Include="Resources\calculate.png" />
+    <None Include="Resources\internet.png" />
+    <None Include="Resources\image.png" />
+    <None Include="Resources\html_16.png" />
+    <None Include="Resources\js_16.png" />
+    <None Include="Resources\aspx_16.png" />
+    <None Include="Resources\css_16.png" />
+    <None Include="Resources\folder_16.png" />
+    <None Include="Resources\import.png" />
+    <None Include="Resources\first.png" />
+    <None Include="Resources\prev.png" />
+    <None Include="Resources\next.png" />
+    <None Include="Resources\last.png" />
+    <None Include="Resources\bulk.png" />
+    <None Include="Resources\chart.png" />
+    <None Include="Resources\levels.png" />
+    <Content Include="syntax\CSharp.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\Java.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\ASP.Syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\CPP.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\CSS.Syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\JavaScript.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\MySQL_SQL.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\VBNET.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="syntax\XML.syn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Web References\TestService\AutoPaper.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\AutoProgrammingQuestion.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\CompilerMessage.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\ObjectiveQuestion.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\Paper1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\ProgrammingQuestion.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\QuestionCategory.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\QuestionLevel.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\Questions1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\SqlQuestion1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\TestAnswers1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\TestImage1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\TestSchedule1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\UserExtension.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\UserInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TestService\WebProgrammingQuestion.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NvnTest.Common\NvnTest.Common.csproj">
+      <Project>{66554A81-91F3-4836-B15D-735F323D12BC}</Project>
+      <Name>NvnTest.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

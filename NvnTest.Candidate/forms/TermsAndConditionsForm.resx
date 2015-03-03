@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="txtTerms.Text" xml:space="preserve">
+    <value>CODERLABZ SOFTWARE LICENSE AGREEMENT 
+
+Please read carefully the terms and conditions of this end user license agreement between you and Coderlabz (the "EULA") before downloading, installing or using the software or any accompanying documentation (collectively, the "Software"). This EULA also apply to any Coderlabz updates, supplements, Internet-based services, and support services for this software, unless other terms accompany those items. 
+
+BY USING THE SOFTWARE, YOU ACCEPT THE TERMS AND CONDITIONS OF THIS EULA. If you do not accept them, do not use the Software. If you agree to this EULA on behalf of another person or legal entity including, without limitation, another business, you represent and warrant that you have the authority to bind that entity to this EULA and your agreement to this EULA will be treated as the agreement of the entity. In that event, "you" and "your" will refer and apply to that entity. 
+
+1. Scope of License.
+
+1.1. Use of the Software is restricted to use by the specific licensing entity only, and only for your internal business. You may not use the Software for any commercial purpose or for the benefit of any third parties or provide service bureau or other access or use of the Software to third parties.
+
+1.2. You may install and use any number of copies of the Software on your devices. The Software is licensed, not sold. This EULA only gives you some rights to use the Software. Coderlabz reserves all other rights. Unless applicable law gives you more rights despite this limitation, you may use the software only as expressly permitted in this EULA. In doing so, you must comply with any technical limitations in the Software that only allow you to use it in certain ways.
+
+1.3. You may not transfer the Software or this EULA to any third party, or use the Software for commercial software hosting services. 
+
+2. Limitations.
+
+2.1. You may not, directly or indirectly, sublicense, assign, transfer, sell, rent, lend, lease or otherwise provide the Software (including without limitation any capacity) or any portion thereof, to any third party, and any attempt to do so is null and void.
+
+2.2. You may not reverse engineer, disassemble, decompile or make any attempt to ascertain, derive or obtain the source code for the Software. You may not combine the Software with any other software or product.
+
+2.3. Coderlabz may, in its sole discretion and to the maximum extent permitted within your jurisdiction, modify or discontinue or suspend your ability to use any version of the Software, and/or disable any Software you may already have accessed or installed without any notice to you, for the repair, improvement, and/or upgrade of the underlying technology or for any other justifiable reason, including but not limited to, circumstances where you, at Coderlabz's discretion, are in breach of the terms of this EULA, creating problems, possible legal liabilities, or engaging in fraudulent, immoral or illegal activities, or for other similar reasons. 
+
+3. Ownership.
+
+The Coderlabz is the owner of this software as well as of the used algorithms and procedures. Coderlabz holds the legal claim and the possessory claim of this software. This Agreement provides You only a limited use license, and no ownership of any intellectual property. All rights in the Third Party Applications, including all ownership rights are reserved and remain with such third parties. 
+
+4. Support Services.
+
+While you may, and are invited to, notify Coderlabz of any error data in the Software, Coderlabz is under no obligation to support the Software in any way or to correct any deficiencies, nor to provide updates, new builds or error corrections ("Software Updates"). In the event that Coderlabz, in its sole discretion, supplies Software Updates to you, such Software Updates shall be deemed Software hereunder and shall be licensed to you under the terms and subject to the conditions of this Agreement. 
+
+5. NO WARRANTY
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE SOFTWARE IS PROVIDED "AS IS" AND WITH ALL FAULTS AND CODERLABZ MAKES NO PROMISES, REPRESENTATIONS OR WARRANTIES, EITHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, WITH RESPECT TO THE SOFTWARE, INCLUDING ITS CONDITION, ITS CONFORMITY TO ANY REPRESENTATION OR DESCRIPTION, OR THE EXISTENCE OF ANY LATENT OR PATENT DEFECTS, AND CODERLABZ SPECIFICALLY DISCLAIMS ALL IMPLIED (IF ANY) WARRANTIES OF TITLE, MERCHANTABILITY, NONINFRINGEMENT, FITNESS FOR A PARTICULAR PURPOSE, LACK OF VIRUSES, ACCURACY OR COMPLETENESS, QUIET ENJOYMENT, QUIET POSSESSION OR CORRESPONDENCE TO DESCRIPTION. THE ENTIRE RISK ARISING OUT OF USE OR PERFORMANCE OF THE SOFTWARE LIES WITH USER. 
+
+6. LIMITATION OF LIABILITY
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL CODERLABZ OR ITS SUPPLIERS BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION, OR ANY OTHER PECUNIARY LOSS) ARISING OUT OF THE USE OF OR INABILITY TO USE THE SOFTWARE, EVEN IF CODERLABZ HAS BEEN ADVISED OF THE POSSIBLITY OF SUCH DAMAGES. SHOULD THE SOFTWARE PROVE DEFECTIVE AFTER CODERLABZ HAS DELIVERED THE SAME, YOU, AND YOU ALONE, SHALL ASSUME THE ENTIRE COST ASSOCIATED WITH ALL NECESSARY SERVICING, REPAIR OR CORRECTION. 
+
+SOME JURISDICTIONS DO NOT ALLOW LIMITATION OR EXCLUSION OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE ABOVE LIMITATIONS OR EXCLUSION MAY NOT APPLY TO YOU TO THE EXTENT THAT LIABILITY IS BY LAW INCAPABLE OF EXCLUSION OR RESTRICTION. 
+
+IN NO EVENT SHALL ANY THEORY OF LIABILITY EXCEED THE LICENSE FEE PAID TO THE Coderlabz OR INR 1 
+
+7. Severability.
+
+In the event of invalidity of any provision of this license, the parties agree that such invalidity shall not affect the validity of the remaining portions of this license. 
+
+8. Governing law.
+
+This Agreement will be governed by the laws of the Republic of India. The state and federal courts within state of karnataka, India will have exclusive jurisdiction over all disputes arising out of this Agreement. 
+
+9. Legal Effect.
+
+Coderlabz reserves the right to modify and/or change any of the terms and conditions of this EULA at any time and without prior notice. If Coderlabz materially modifies this EULA it will post the updated EULA in its website or software. By continuing to use the Software after Coderlabz has posted a modification of this EULA, you agree to be bound by the modified EULA. If the modified EULA is not acceptable to you, your only recourse is to cease using the Software.</value>
+  </data>
+</root>
